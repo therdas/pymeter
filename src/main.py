@@ -3,6 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import * 
 from PyQt5.QtSvg import QSvgWidget, QSvgRenderer
 from icongen import vectorMeter
+from info import cpu
 import psutil
   
 app = QApplication([]) 
@@ -57,8 +58,8 @@ print("exec")
 i = 0
 
 def updateIcon():
-    tray.setIcon(QIcon(vectorMeter.foo(psutil.cpu_percent(), 32)))
-    print("CPU USAGE "+ str(psutil.cpu_percent()))
+    tray.setIcon(QIcon(vectorMeter.foo(cpu.getNodeN(2), 32)))
+    print("CPU USAGE "+ str(cpu.getNodeN(2)), " PSUTIL ", psutil.cpu_percent())
 
 timer = QTimer()
 timer.timeout.connect(updateIcon)

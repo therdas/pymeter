@@ -20,5 +20,4 @@ def foo(percent = 0, size = 32):
     r.render(p)
     a = QPixmap.fromImage(i)
     p.end()
-    print(a)
     return a
